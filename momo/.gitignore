@@ -1,0 +1,4 @@
+.idea/
+venv/
+Unet/data/
+__pycache__/
