@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\client\ThreadWorker.cpp" />
+    <ClCompile Include="..\grpcProtoCommon\UserService.grpc.pb.cc" />
+    <ClCompile Include="..\grpcProtoCommon\UserService.pb.cc" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\client\ThreadWorker.h" />
+    <ClInclude Include="..\grpcProtoCommon\UserService.grpc.pb.h" />
+    <ClInclude Include="..\grpcProtoCommon\UserService.pb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\grpcProtoCommon\UserService.proto" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{9788C6AD-E5D0-4491-B131-111707CAB4D6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>clientNeuro</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WIN32_WINNT=0x601;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\base\Debug;D:\Work\test grpc\grpc\client;D:\Work\test grpc\grpc\grpcProtoCommon;D:\Work\grpc\grpc1.35.0\third_party\protobuf\src;D:\Work\grpc\grpc1.35.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\debugging\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\debugging;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\synchronization\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\status\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\re2\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\protobuf\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\boringssl-with-bazel\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\zlib\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\cares\cares\lib\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\types\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\numeric\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\time\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\strings\Debug;D:\Work\grpc\grpc1.35.0\.build_x64\third_party\abseil-cpp\absl\base\Debug;$(gRPC_Build)\third_party\abseil-cpp\absl\debugging\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\synchronization\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\status\$(Configuration)\;$(gRPC_Build)\third_party\re2\$(Configuration)\;$(gRPC_Build)\third_party\zlib\$(Configuration)\;$(gRPC_Build)\third_party\cares\cares\lib\$(Configuration)\;$(gRPC_Build)\third_party\boringssl-with-bazel\$(Configuration)\;$(gRPC_Build)\third_party\protobuf\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\types\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\strings\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\base\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\numeric\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\time\$(Configuration)\;$(gRPC_Build)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>absl_raw_logging_internal.lib;absl_str_format_internal.lib;absl_strings.lib;absl_throw_delegate.lib;absl_time_zone.lib;absl_time.lib;absl_int128.lib;absl_bad_optional_access.lib;address_sorting.lib;cares.lib;zlibstaticd.lib;crypto.lib;ssl.lib;libprotobufd.lib;grpc++.lib;grpc.lib;gpr.lib;upb.lib;ws2_32.lib;Iphlpapi.lib;re2.lib;absl_status.lib;absl_statusor.lib;absl_cord.lib;absl_spinlock_wait.lib;absl_malloc_internal.lib;absl_base.lib;absl_strings_internal.lib;absl_synchronization.lib;absl_graphcycles_internal.lib;absl_stacktrace.lib;absl_symbolize.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

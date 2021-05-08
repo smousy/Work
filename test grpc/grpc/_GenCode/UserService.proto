@@ -1,0 +1,35 @@
+//Protobuf file for a user service operations
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service UserServiceOperations{
+
+  //Notification stream from the server
+  rpc StartNotificationStream(google.protobuf.Empty) returns (stream NotificationMessageDto) {}
+
+  //Send file for process
+  rpc ProcessFile (DicomFileDto) returns (ProcessResult) {}
+
+}
+
+//Dicom file
+message DicomFileDto{
+  repeated MetadataDto Metadata=1;
+  bytes Data=2;
+}
+
+//File metadata
+message MetadataDto{
+  string Key=1;
+  string Value=2;
+}
+
+message ProcessResult{
+  repeated MetadataDto Metadata=1;
+}
+
+message NotificationMessageDto{
+  string Message=1;
+}

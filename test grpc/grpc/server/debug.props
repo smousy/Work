@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <gRPC_Source>D:\Work\grpc\grpc1.35.0</gRPC_Source>
+    <gRPC_Build>D:\Work\grpc\grpc1.35.0\.build_x64</gRPC_Build>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IntDir>$(SolutionDir)Build\$(ProjectName)\$(Configuration) $(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Build\$(ProjectName)\$(Configuration) $(Platform)\</OutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="gRPC_Source">
+      <Value>$(gRPC_Source)</Value>
+    </BuildMacro>
+    <BuildMacro Include="gRPC_Build">
+      <Value>$(gRPC_Build)</Value>
+    </BuildMacro>
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\grpcProtoCommon\;$(gRPC_Source)\include\;$(gRPC_Source)\third_party\protobuf\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x601;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(gRPC_Build)\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\time\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\numeric\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\base\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\strings\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\types\$(Configuration)\;$(gRPC_Build)\third_party\protobuf\$(Configuration)\;$(gRPC_Build)\third_party\boringssl-with-bazel\$(Configuration)\;$(gRPC_Build)\third_party\cares\cares\lib\$(Configuration)\;$(gRPC_Build)\third_party\zlib\$(Configuration)\;$(gRPC_Build)\third_party\re2\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\status\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\base\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\strings\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\synchronization\$(Configuration)\;$(gRPC_Build)\third_party\abseil-cpp\absl\debugging\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>absl_raw_logging_internal.lib;absl_str_format_internal.lib;absl_strings.lib;absl_throw_delegate.lib;absl_time_zone.lib;absl_time.lib;absl_int128.lib;absl_bad_optional_access.lib;address_sorting.lib;cares.lib;zlibstaticd.lib;crypto.lib;ssl.lib;libprotobufd.lib;grpc++.lib;grpc.lib;gpr.lib;upb.lib;ws2_32.lib;Iphlpapi.lib;re2.lib;absl_status.lib;absl_statusor.lib;absl_cord.lib;absl_spinlock_wait.lib;absl_malloc_internal.lib;absl_base.lib;absl_strings_internal.lib;absl_synchronization.lib;absl_graphcycles_internal.lib;absl_stacktrace.lib;absl_symbolize.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

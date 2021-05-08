@@ -1,0 +1,15 @@
+﻿  main.cpp
+D:\Work\grpc\grpc1.35.0\third_party\protobuf\src\google\protobuf\parse_context.h(211,17): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+D:\Work\test grpc\grpc\client\main.cpp(206,12): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "3" имеет тип "const google::protobuf::Duration"
+D:\Work\test grpc\grpc\client\main.cpp(211,14): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "3" имеет тип "const google::protobuf::Duration"
+D:\Work\test grpc\grpc\client\main.cpp(224,14): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "3" имеет тип "const google::protobuf::Duration"
+D:\Work\grpc\grpc1.35.0\third_party\protobuf\src\google\protobuf\parse_context.h(350,22): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+D:\Work\grpc\grpc1.35.0\third_party\protobuf\src\google\protobuf\parse_context.h(366): message : выполняется компиляция ссылки на экземпляр шаблон функции "const char *google::protobuf::internal::EpsCopyInputStream::AppendUntilEnd<google::protobuf::internal::EpsCopyInputStream::AppendString::<lambda_2a2a8cefb56710607aa8bf74eb61d0f6>>(const char *,const A &)"
+          with
+          [
+              A=google::protobuf::internal::EpsCopyInputStream::AppendString::<lambda_2a2a8cefb56710607aa8bf74eb61d0f6>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "std::chrono::duration<double,std::ratio<1,1>>"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "std::chrono::duration<__int64,std::nano>"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>"
+  client.vcxproj -> D:\Work\test grpc\grpc\Build\client\Debug x64\client.exe
