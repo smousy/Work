@@ -119,13 +119,15 @@ def new_predict(list):
 
                 new_poly_line.append((Y, X))
 
-            WKTCenter_node.setAttribute("Value", str(result[0])+", "+str(result[1]) )
-            line = "PolyLine "
+            WKTCenter_node.setAttribute("Value","POINT ("+ str(result[0])+" "+str(result[1])+")" )
+            line = "POLYGON (( "
             for j in new_poly_line:
-                line += (str(j[0])+" "+str(j[1])+" ")
+                line += (str(j[0])+" "+str(j[1])+", ")
+            line = line[:-2]
+            line += "))"
 
             WKTBorder_node.setAttribute("Value", line)
-            WKTLine_node.setAttribute("Value",str(result[0])+", "+str(result[1])+", "+"0.0"+", "+str(result[1]))
+            WKTLine_node.setAttribute("Value","LINESTRING("+ str(result[0])+" "+str(result[1])+", "+"0.0"+" "+str(result[1])+")")
             Artefact_node.appendChild(WKTBorder_node)
             Artefact_node.appendChild(WKTCenter_node)
             Artefact_node.appendChild(WKTLine_node)
