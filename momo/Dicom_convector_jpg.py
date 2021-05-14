@@ -88,7 +88,6 @@ class Dicom_convector_jpg:
         buffer = shared_memory.SharedMemory(name=memory_name)
         New_Img = numpy.ndarray((self.rows, self.cols), numpy.uint8, buffer=buffer.buf)
         for i in range(rows_start, rows_finish):
-            print(i)
             for j in range(0, self.cols):
                 Pix_Val = Pixels[i][j]
                 Rescale_Pix_Val = Pix_Val * self.Rescale_Slope + self.Rescale_Intercept

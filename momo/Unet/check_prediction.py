@@ -85,6 +85,32 @@ def new_predict(list):
         Image_node.setAttribute("SopInstanceUID", list[index])
         Artefacts_node = doc.createElement('Artefacts')
         Image_node.appendChild(Artefacts_node)
+
+        temp_Arctefact = doc.createElement('Artefact')
+        temp_Arctefact.setAttribute("Id", "3")
+        temp_Arctefact.setAttribute("Value", "30")
+
+        temp_Property1 = doc.createElement('Property')
+        temp_Property1.setAttribute("Id", "4")
+        temp_Property1.setAttribute("Value", "40")
+
+        temp_Property2 = doc.createElement('Property')
+        temp_Property2.setAttribute("Id", "5")
+        temp_Property2.setAttribute("Value", "50")
+
+        temp_Property3 = doc.createElement('Property')
+        temp_Property3.setAttribute("Id", "6")
+        temp_Property3.setAttribute("Value", "61")
+
+        temp_wkt_value = doc.createElement('WKT')
+        temp_wkt_value.setAttribute("Value", "PolyLine 50,30,40,80")
+        temp_Arctefact.appendChild(temp_Property1)
+        temp_Arctefact.appendChild(temp_Property2)
+        temp_Arctefact.appendChild(temp_Property3)
+        temp_Arctefact.appendChild(temp_wkt_value)
+        Artefacts_node.appendChild(temp_Arctefact)
+
+
         Artefact_node = doc.createElement('Artefact')
         Artefact_node.setAttribute("Id", "3")
         Artefact_node.setAttribute("Value", "393")
@@ -103,21 +129,26 @@ def new_predict(list):
         image1 = Image.open(predict_mask_folder + i)
         result = barycenter(image1)
         if result != "error":
-            Y = (result[0]*float(info[5])+int(info[3]))/(
-                    image1.size[1]*float(info[5])+int(info[3])+int(info[4]))
-            X = (result[1]*float(info[5])+int(info[1]))/(
-                    image1.size[0]*float(info[5])+int(info[1])+int(info[2]))
+            end_line_point = 0.0
+            if(int(info[4])<10):
+                end_line_point = 1.0
 
-            result = (Y, X)
+            #print(result[0],result[1],image1.size[1],image1.size[0])
+            Y = (result[0]*float(info[5])/1.917+int(info[1]))/(
+                    image1.size[1]*float(info[5])/1.917+int(info[1])+int(info[2]))
+            X = (result[1]*float(info[5])/1.917+int(info[3]))/(
+                    image1.size[0]*float(info[5])/1.917+int(info[3])+int(info[4]))
+
+            result = (X, Y)
             poly_line = get_polyline(image1)
             new_poly_line = []
             for j in poly_line:
-                Y = (j[0] * float(info[5]) + int(info[3])) / (
-                            image1.size[1]*float(info[5]) + int(info[3]) + int(info[4]))
-                X = (j[1] * float(info[5]) + int(info[1])) / (
-                            image1.size[0]*float(info[5]) + int(info[1]) + int(info[2]))
+                Y = (j[0] * float(info[5])/1.917 + int(info[1])) / (
+                            image1.size[1]*float(info[5])/1.917 + int(info[1]) + int(info[2]))
+                X = (j[1] * float(info[5])/1.917 + int(info[3])) / (
+                            image1.size[0]*float(info[5])/1.917 + int(info[3]) + int(info[4]))
 
-                new_poly_line.append((Y, X))
+                new_poly_line.append((X, Y))
 
             WKTCenter_node.setAttribute("Value","POINT ("+ str(result[0])+" "+str(result[1])+")" )
             line = "POLYGON (( "
@@ -127,13 +158,18 @@ def new_predict(list):
             line += "))"
 
             WKTBorder_node.setAttribute("Value", line)
-            WKTLine_node.setAttribute("Value","LINESTRING("+ str(result[0])+" "+str(result[1])+", "+"0.0"+" "+str(result[1])+")")
+            WKTLine_node.setAttribute("Value","LINESTRING("+ str(result[0])+" "+str(result[1])+", "+str(end_line_point)+" "+str(result[1])+")")
             Artefact_node.appendChild(WKTBorder_node)
             Artefact_node.appendChild(WKTCenter_node)
             Artefact_node.appendChild(WKTLine_node)
             Artefacts_node.appendChild(Artefact_node)
         doc.appendChild(Image_node)
     xml_str = doc.toprettyxml(indent="  ", encoding='UTF-8')
-    result_file = open("Unet/data/barry_center_poly_line.txt", "w")
+
+    result_file = open("D:/Work/test grpc/grpc/clientOstis/barry_center_poly_line.xml", "w")
+    result_file.write(str(xml_str, 'UTF-8'))
+    result_file.close()
+
+    result_file = open("D:/Work/test grpc/grpc/server/barry_center_poly_line.xml", "w")
     result_file.write(str(xml_str, 'UTF-8'))
     result_file.close()
